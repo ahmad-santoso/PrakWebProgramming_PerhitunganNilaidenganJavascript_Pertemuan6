@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas P6 - Perhitungan Nilai dengan Javascript - Praktikum Web Programming</title>
+</head>
+<body>
+    <main style="position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <h4 style="text-align: center;">Perhitungan Nilai dengan Javascript</h4>
+        <form style="background-color: rgb(84, 165, 241); width: 350px; padding: 20px;" onsubmit="return kalkulasiPenilaian()">
+            <label for="nilai">Nilai Anda <span style="margin-left: 140px;">:</span></label>
+            <input type="text" id="nilai" name="nilai" style="margin-left: 10px; width: 100px;">
+            <br>
+            <label for="predikat">Anda Mendapatkan Predikat <span style="margin-left: 27px;">:</span></label>
+            <input type="text" id="predikat" name="predikat" style=" margin-top: 4px; margin-left: 9px; width: 100px;">
+            <br>
+            <input type="submit" value="Hasilnya" id="hasil" style="margin-top: 20px; margin-left: 140px;">
+        </form>
+    </main>
+
+    <script>
+        function kalkulasiPenilaian() {
+            // Mendapatkan nilai dari input
+            var nilaiInput = document.getElementById("nilai").value;
+            var predikat;
+
+            // Konversi nilai menjadi predikat
+            if (nilaiInput >= 0 && nilaiInput <= 40) {
+                predikat = "E";
+            } else if (nilaiInput >= 41 && nilaiInput <= 55) {
+                predikat = "D";
+            } else if (nilaiInput >= 56 && nilaiInput <= 60) {
+                predikat = "C";
+            } else if (nilaiInput >= 61 && nilaiInput <= 65) {
+                predikat = "BC";
+            } else if (nilaiInput >= 66 && nilaiInput <= 70) {
+                predikat = "B";
+            } else if (nilaiInput >= 71 && nilaiInput <= 80) {
+                predikat = "AB";
+            } else if (nilaiInput >= 81 && nilaiInput <= 100) {
+                predikat = "A";
+            } else {
+                predikat = "Nilai tidak valid";
+            }
+
+            // Menampilkan predikat pada input predikat
+            document.getElementById("predikat").value = predikat;
+
+            // Mengembalikan false untuk mencegah pengiriman formulir
+            return false;
+        }
+    </script>
+</body>
+</html>
